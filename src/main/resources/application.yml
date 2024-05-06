@@ -1,0 +1,9 @@
+quarkus:
+  naming:
+    enable-jndi: true
+  log:
+    level: DEBUG
+  datasource:
+    devservices:
+      enabled: true
+      port: 5432
