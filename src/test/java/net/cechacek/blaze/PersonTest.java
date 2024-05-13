@@ -58,9 +58,9 @@ public class PersonTest {
     @Test
     @Order(20)
     public void test20() {
+        Assertions.assertThat(departmentService.findById(2L)).isNotNull();
         personService.delete(1L);
-        var dep = departmentService.findById(1L);
-        Assertions.assertThat(dep).isNotNull();
+        Assertions.assertThat(departmentService.findById(2L)).isNotNull();
     }
 
     @Test
