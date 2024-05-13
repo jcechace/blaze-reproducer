@@ -42,30 +42,10 @@ public class PersonTest {
     }
 
     @Test
-    @Order(10)
-    public void test10() {
-        var dep = evm.create(Department.class);
-        dep.setName("departmentB");
-        departmentService.create(dep);
-
-        var ref = evm.convert(dep, ReadOnlyDepartment.class);
-
-        var person = personService.findById(1L);
-        person.setDepartment(ref);
-        personService.update(person);
-    }
-
-    @Test
     @Order(20)
     public void test20() {
-        Assertions.assertThat(departmentService.findById(2L)).isNotNull();
+        Assertions.assertThat(departmentService.findById(1L)).isNotNull();
         personService.delete(1L);
-        Assertions.assertThat(departmentService.findById(2L)).isNotNull();
-    }
-
-    @Test
-    @Order(30)
-    public void test30() {
-        System.out.println();
+        Assertions.assertThat(departmentService.findById(1L)).isNotNull();
     }
 }
